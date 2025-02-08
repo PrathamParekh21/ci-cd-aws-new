@@ -25,7 +25,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.CODEDEPLOY_IAMROLE }}
           role-session-name: GitHub-Action-Role
-          aws-region: us-east-1   # Explicitly passing the AWS region
+          aws-region: ${{ env.AWS_REGION }}  
 
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
@@ -59,7 +59,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.CODEDEPLOY_IAMROLE }}
           role-session-name: GitHub-Action-Role
-          aws-region: us-east-1   # Explicitly passing the AWS region
+          aws-region: ${{ env.AWS_REGION }}  
 
       - run: |
           echo "Deploying branch ${{ github.ref }} to Dev environment"
